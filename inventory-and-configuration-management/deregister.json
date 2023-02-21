@@ -1,0 +1,6 @@
+{
+  "Datacenter": "dc1",
+  "Node": "coffeepot-01.example.com",
+  "ServiceID": "coffeepot-01",
+  "CheckID": "service:coffeepot-01"
+}

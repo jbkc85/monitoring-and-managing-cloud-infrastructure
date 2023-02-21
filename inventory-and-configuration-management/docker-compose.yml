@@ -25,7 +25,7 @@ services:
       - /var/log:/var/log
     command: -config.file=/etc/promtail/config.yml
   grafana:
-    image: grafana/grafana:9.3.6
+    image: grafana/grafana:8.3.3
     ports:
       - "3000:3000"
   node-exporter:
@@ -56,5 +56,5 @@ services:
   coffeepot:
     build: ./dockerfs/coffeepot
     ports:
-      - 8000
+      - "8000:8000"
       - "8001:8001"

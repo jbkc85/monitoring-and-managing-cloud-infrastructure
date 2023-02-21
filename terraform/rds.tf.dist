@@ -1,0 +1,22 @@
+resource "aws_db_subnet_group" "coffeepot" {
+  name       = "main"
+  subnet_ids = [aws_subnet.public-subneta.id]
+
+  tags = {
+    Name = "main"
+  }
+}
+
+resource "aws_db_instance" "coffeepot" {
+  allocated_storage    = 10
+  db_name              = "coffeepot"
+  db_subnet_group_name = aws_db_subnet_group.coffeepot.name
+  engine               = "mysql"
+  engine_version       = "5.7"
+  instance_class       = "db.t3.micro"
+  username             = "username"
+  password             = "password" # this should come from a secret store
+  #password             = data.vault_generic_secret.test.data["bar"]
+  parameter_group_name = "default.mysql5.7"
+  skip_final_snapshot  = true
+}

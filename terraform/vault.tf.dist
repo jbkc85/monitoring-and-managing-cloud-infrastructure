@@ -1,0 +1,18 @@
+#
+# hashicorp providers
+# providers necessary to interact with very solutions provided (developed) by HashiCorp
+
+# provider.vault
+provider "vault" {
+  address = "http://localhost:8200"
+  token = "root"
+}
+
+data "vault_generic_secret" "test" {
+  path = "secret/foo"
+}
+
+output "test" {
+  sensitive = true
+  value = data.vault_generic_secret.test.data["bar"]
+}
