@@ -9,3 +9,10 @@
       ansible.builtin.template:
         src: templates/coffeepot.service.j2
         dest: /etc/systemd/system/coffeepot.service
+    - name: service template coffeepot
+      become: true
+      ansible.builtin.template:
+        src: templates/coffeepot-timer.service.j2
+        dest: /etc/systemd/system/coffeepot-timer.service
+      vars:
+        version: v3

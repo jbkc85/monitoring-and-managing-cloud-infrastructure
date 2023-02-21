@@ -2,7 +2,7 @@
 Description=I am a CoffeePot
 
 [Service]
-ExecStart=/bin/coffeepot
+ExecStart=/bin/coffeepot -distribution {{ ansible_facts['distribution'] }}
 Restart=on-failure
 RestartSec=60
 

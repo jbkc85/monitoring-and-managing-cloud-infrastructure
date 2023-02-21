@@ -1,0 +1,10 @@
+[Unit]
+Description=I am a CoffeePot Timer {{ version }}
+
+[Service]
+ExecStart=/bin/true
+Restart=on-failure
+RestartSec=60
+
+[Install]
+WantedBy=multi-user.target
